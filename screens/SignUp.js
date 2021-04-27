@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, TextInput, View, Button, TouchableOpacity, StatusBar } from 'react-native'
 import firebase from '../Firebase';
+import firestore from '../Firebase';
 import FlashMessage from "react-native-flash-message";
 import { showMessage, hideMessage } from "react-native-flash-message";
 
@@ -10,36 +11,37 @@ export default class SignUp extends React.Component {
     super();
   }
 
-  state = { name: '', email: '', password: ''}
+  state = { name: '', email: '', password: '', score: 0}
 
   Register = (email, password) => {
-    try {
-      firebase
-         .auth()
-         .createUserWithEmailAndPassword(email, password)
-         .then(data => {
-           ()=>showMessage({
-          message: "Success",
-          description: "You have Signed Up Successfully",
-          type: "success",
-        })
-
-  .then((ref) => {  });
-        this.props.navigation.navigate('Main',data.user.uid)
-
-      }
-         ).catch(error=>{
-          showMessage({
-            message: "Error",
-            description: "Incorrect Info",
-            type: "info",
+      firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+          .then((userCredentials)=>{
+              if(userCredentials.user){
+                userCredentials.user.updateProfile({
+                  displayName: this.state.name
+                })
+                .then(() => {
+                       //Once the user creation has happened successfully, we can add the currentUser into firestore
+                       //with the appropriate details.
+                       firebase.firestore().collection('users').doc(firebase.auth().currentUser.uid)
+                       .set({
+                           name: this.state.name,
+                           email: this.state.email,
+                           score: this.state.score,
+                       })
+                       //ensure we catch any errors at this stage to advise us if something does go wrong
+                       .catch(error => {
+                           console.log('Something went wrong with added user to firestore: ', error);
+                       })
+                })
+                .then((s)=> {
+                  this.props.navigation.navigate('WelcomeScreen');
+                })
+              }
+          })
+          .catch(function(error) {
+            alert(error.message);
           });
-         });
-
-} catch (error) {
-      //console.log(error.toString(error));
-
-    }
   };
 
   render(){
@@ -97,7 +99,7 @@ export default class SignUp extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1A344E',
+    backgroundColor: "white",
     alignItems: 'center',
     justifyContent: 'center',
   },

@@ -51,7 +51,7 @@ export default class Question extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={{ fontStyle: 'italic', color:"#fb5b5a", fontSize: 20, fontWeight: "bold" }}>
+        <Text style={{ fontStyle: 'italic', color:"#fb5b5a", fontSize: 24, fontWeight: "bold" }}>
           {this.props.question.question}
         </Text>
         <RadioGroup
@@ -85,14 +85,14 @@ export default class Question extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1A344E",
+    backgroundColor: "white",
     padding: 40,
     height: '100%',
     width: '100%'
   },
   radioText: {
     fontSize: 20,
-    color: "white"
+    color: "black"
   },
   button: {
     backgroundColor:"#fb5b5a",

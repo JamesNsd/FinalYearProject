@@ -2,6 +2,7 @@ import React from 'react';
 import { View, ActivityIndicator, Picker, StyleSheet, Text, Button, TouchableOpacity, Image, StatusBar } from 'react-native';
 import Question from "../components/Question";
 import firebase from '../Firebase';
+import firestore from '../Firebase';
 
 export default class TakeQuiz extends React.Component {
 
@@ -71,7 +72,7 @@ export default class TakeQuiz extends React.Component {
         this.setState({
           current: index + 1,
           results,
-          completed: index === 4 ? true : false
+          completed: index === 9 ? true : false
         });
       };
 
@@ -79,19 +80,22 @@ export default class TakeQuiz extends React.Component {
         this.fetchQuestions();
       }
 
-      IsGameEnd= (score) => {
-        try {
-          if(this.props.navigation.state.params){
-            firebase.firestore().collection('Users').doc(this.props.navigation.state.params)
+      setScore= (score) => {
+            firebase.firestore().collection('users').doc(firebase.auth().currentUser.uid)
             .update({
-              lastscore:score
-             })
-             this.componentDidMount();
-          }
-        } catch (error) {
-
-        }
-      }
+              score:this.state.results.score
+            })
+            //ensure we catch any errors at this stage to advise us if something does go wrong
+            .catch(error => {
+                console.log('Something went wrong with added user to firestore: ', error);
+            })
+            .then((s)=> {
+                this.props.navigation.navigate('HighScore');
+            })
+          .catch(function(error) {
+            alert(error.message);
+          });
+      };
 
       render() {
         return (
@@ -117,14 +121,14 @@ export default class TakeQuiz extends React.Component {
                   <Text style={styles.logo}>Quiz Completed</Text>
                   <Text style={styles.scores}>Correct Answers: {this.state.results.correctAnswers}</Text>
                   <Text style={styles.scores}>
-                    Incorrect Answers: {5 - this.state.results.correctAnswers}
+                    Incorrect Answers: {10 - this.state.results.correctAnswers}
                   </Text>
-                  <Text style={styles.scores}>Total Score: {25}</Text>
+                  <Text style={styles.scores}>Total Score: {50}</Text>
                   <Text style={styles.scores}>Obtained Score: {this.state.results.score}</Text>
 
                  <TouchableOpacity
                          style={styles.button}
-                         onPress={() => this.props.navigation.navigate("HighScore")}
+                         onPress={() => this.setScore(this.state.score)}
                        >
                          <Text
                             style={{color: "white", fontWeight: "bold"}}
@@ -166,8 +170,7 @@ export default class TakeQuiz extends React.Component {
     const styles = StyleSheet.create({
       container: {
     flex: 1,
-    //backgroundColor: '#003f5c',
-    backgroundColor: '#1A344E',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
       },

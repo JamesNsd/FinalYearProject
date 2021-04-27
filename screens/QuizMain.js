@@ -42,8 +42,7 @@ export default class QuizMain extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //backgroundColor: '#003f5c',
-    backgroundColor: '#1A344E',
+    backgroundColor: "white",
     alignItems: 'center',
     justifyContent: 'center',
   },

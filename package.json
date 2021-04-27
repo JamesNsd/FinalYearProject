@@ -8,7 +8,8 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@react-native-firebase/app": "^11.2.0",
+    "@react-native-firebase/app": "^11.3.0",
+    "@react-native-firebase/auth": "^11.3.0",
     "@react-native-firebase/firestore": "^11.0.0",
     "@react-native-firebase/iid": "^11.2.0",
     "@react-navigation/material-bottom-tabs": "^5.3.14",
@@ -21,6 +22,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
+    "react-native-app-intro-slider": "^4.0.4",
     "react-native-clean-project": "^3.4.0",
     "react-native-dotenv": "^2.5.3",
     "react-native-flash-message": "^0.1.23",

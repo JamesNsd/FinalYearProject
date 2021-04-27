@@ -1,4 +1,4 @@
-import React from 'react';
+  import React from 'react';
 import firebase from '../Firebase';
 import Leaderboard from 'react-native-leaderboard';
 import { Alert, View,Text, Image, Button, TouchableOpacity} from 'react-native';
@@ -47,16 +47,16 @@ sort = (data) => {
 componentDidMount(){
 try {
   const user = firebase.auth().currentUser;
-firebase.firestore().collection("Users").doc(firebase.auth().currentUser.uid)
+firebase.firestore().collection("users").doc(firebase.auth().currentUser.uid)
 .get()
 .then(querySnapshot => {
 this.setState({
   myUserName:querySnapshot.data().name,
-  myLastScore:querySnapshot.data().lastscore
+  myLastScore:querySnapshot.data().score
 })
 });
   firebase.firestore()
-  .collection('Users')
+  .collection('users')
   .get()
   .then(snapshot => {
     snapshot.forEach(doc => {
@@ -67,7 +67,7 @@ this.setState({
             ...this.state.data,
             {
           userName:doc.data().name,
-          highScore:doc.data().lastscore}
+          highScore:doc.data().score}
           ]
 
         })
@@ -83,30 +83,20 @@ this.setState({
 
 }
 
-//<Image style={{width:30,height:30}} source={{uri: 'https://i.hizliresim.com/Xmlc2X.png'}}/>
-
 renderHeader() {
   return (
-      <View colors={[, '#1da2c6', '#1695b7']}
-          style={{ backgroundColor: '#1A344E',}}>
-            <View>
-              <TouchableOpacity style={{ height: 35, width:35,paddingLeft:10, paddingTop:10 }} onPress={() => this.props.navigation.goBack()}>
-                <Image style={{width:35,height:35}} source={{uri: 'https://i.hizliresim.com/1CcP8X.png'}}/>
-              </TouchableOpacity>
-            </View>
+      <View colors={[ '#1da2c6', '#1695b7']}
+          style={{ backgroundColor: 'white'}}>
 
             <View style={{
               flexDirection: 'column', justifyContent: 'center', alignItems: 'center', paddingTop:6,}}>
               <Text style={{
-              fontSize: 35, fontStyle: 'italic',
+              fontSize: 60, fontStyle: 'italic',
               fontWeight:"bold",
               color:"#fb5b5a",
-              marginBottom:6,
-              textShadowColor: 'rgba(0, 0, 0, 0.75)',
-              textShadowOffset: {width: -1, height: 10},
-              textShadowRadius: 10}}>
+              marginBottom:6}}>
                   Leaderboard</Text>
-              <Text style={{ fontSize: 25, color: 'white', }}>{this.state.myUserName}</Text>
+              <Text style={{ fontSize: 25, fontWeight:"bold", color: 'black', }}>{this.state.myUserName}</Text>
 
 
             </View>
@@ -116,22 +106,18 @@ renderHeader() {
               marginBottom: 15, marginTop: 15
           }}>
             <View style={{flex:3, justifyContent:'space-around',alignItems:'center',flexDirection:'row'}}>
-              <Text style={{ color: 'white', fontSize: 25,}}>
+              <Text style={{ color: 'black', fontSize: 25,}}>
                   {ordinal_suffix_of(this.state.userRank)}
               </Text>
 
-              <Text style={{ color: 'white', fontSize: 25,}}>
+              <Text style={{ color: 'black', fontSize: 25,}}>
                   {this.state.myLastScore} points
               </Text>
 
             </View>
 
           </View>
-          {/* <ButtonGroup
-              onPress={(x) => { this.setState({ filter: x }) }}
-              selectedIndex={this.state.filter}
-              buttons={['Global', 'Friends']}
-              containerStyle={{ height: 30 }} /> */}
+
       </View>
   )
 }

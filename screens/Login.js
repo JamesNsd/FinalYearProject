@@ -10,32 +10,15 @@ export default class SignUp extends React.Component {
   state = { email: '', password: '' }
 
   Login  = (email, password) => {
-    try {
       firebase
          .auth()
          .signInWithEmailAndPassword(email, password)
-         .then(data => {
-           ()=>showMessage({
-          message: "Success",
-          description: "You have Signed In Successfully",
-          type: "success",
-        }),
-
-        this.props.navigation.navigate('Main',data.user.uid)
-
-      }
-         ).catch(error=>{
-          showMessage({
-            message: "Error",
-            description: "Incorrect Info",
-            type: "info",
-          });
+         .then((s)=> {
+            this.props.navigation.navigate('Main');
+         })
+         .catch(function(error) {
+           alert(error.message);
          });
-
-} catch (error) {
-      //console.log(error.toString(error));
-
-    }
   };
 
   render(){
@@ -77,8 +60,7 @@ export default class SignUp extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-   // backgroundColor: '#003f5c',
-    backgroundColor: '#1A344E',
+    backgroundColor: "white",
     alignItems: 'center',
     justifyContent: 'center',
   },

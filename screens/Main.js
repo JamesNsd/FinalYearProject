@@ -16,11 +16,17 @@ render() {
 return (
         <View style={styles.container}>
                 <StatusBar backgroundColor="black"/>
-                <Text style={styles.logo}>Hi!</Text>
+                <Text style={styles.logo}>Hi {currentUser && currentUser.displayName }!</Text>
 
                 <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("QuizMain")}>
                     <Text style={{color: "white", fontWeight: "bold", fontSize: 18}} >
                         Quiz
+                    </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("HighScore")}>
+                    <Text style={{color: "white", fontWeight: "bold", fontSize: 18}} >
+                        LeaderBoard
                     </Text>
                 </TouchableOpacity>
 
@@ -29,6 +35,7 @@ return (
                         Settings
                     </Text>
                 </TouchableOpacity>
+
         </View>
     )
   }
@@ -45,8 +52,7 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
-   // backgroundColor: '#003f5c',
-    backgroundColor: '#1A344E',
+    backgroundColor: "white",
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -58,7 +64,7 @@ const styles = StyleSheet.create({
     height:50,
     alignItems:"center",
     justifyContent:"center",
-    marginTop:70,
+    marginTop:10,
     marginBottom:10,
   },
 
