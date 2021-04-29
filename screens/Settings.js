@@ -1,8 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, StatusBar } from 'react-native';
 import firebase from '../Firebase';
-import FlashMessage from "react-native-flash-message";
-import { showMessage, hideMessage } from "react-native-flash-message";
 
 export default class Settings extends React.Component {
 
@@ -19,12 +17,15 @@ export default class Settings extends React.Component {
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor="black"/>
-        <Text style={styles.logo}>CeliQuiz</Text>
-        <TouchableOpacity onPress={() => this.Logout()} style={styles.loginBtn}>
+        <Text style={styles.logo}>Settings</Text>
+        <TouchableOpacity onPress={() => this.Logout()} style={styles.button}>
             <Text style={styles.loginText}>Logout</Text>
         </TouchableOpacity>
 
-        <FlashMessage position="bottom" />
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('changePasswordScreen')}>
+            <Text style={styles.loginText}>Change Password</Text>
+        </TouchableOpacity>
+
       </View>
       );
     }
@@ -44,37 +45,19 @@ const styles = StyleSheet.create({
     color:"#fb5b5a",
     marginBottom:110
   },
-  inputView:{
-    width:"80%",
-    backgroundColor:"#465881",
-    borderRadius:25,
-    height:50,
-    marginBottom:20,
-    justifyContent:"center",
-    padding:20
-  },
-
-  loginBtn:{
+  button: {
     width:"80%",
     backgroundColor:"#fb5b5a",
     borderRadius:25,
     height:50,
     alignItems:"center",
     justifyContent:"center",
-    marginTop:70,
+    marginTop:10,
     marginBottom:10,
-
   },
   loginText:{
     color:"white",
+    fontWeight: "bold",
+    fontSize: 18
   },
-  SignUpBtn:{
-    width:"80%",
-    backgroundColor:"#669999",
-    borderRadius:25,
-    height:50,
-    alignItems:"center",
-    justifyContent:"center",
-    marginTop:3
-  }
 });

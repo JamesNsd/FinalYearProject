@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/question.png",
       "resizeMode": "contain",
       "backgroundColor": "#fb5b5a"
     },

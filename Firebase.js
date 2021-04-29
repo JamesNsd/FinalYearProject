@@ -3,8 +3,6 @@ require('firebase/auth')
 
 import firestore from 'firebase/firestore'
 
-
-
 const settings = {timestampsInSnapshots: true};
 
 const config = {

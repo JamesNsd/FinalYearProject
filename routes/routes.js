@@ -12,6 +12,7 @@ import TakeQuiz from '../screens/QuestionScreen.js'
 import HighScore from '../screens/HighScore.js'
 import WelcomeScreen from '../screens/WelcomeScreen.js'
 import Stats from '../screens/Stats.js'
+import ForgotPassword from '../screens/forgotPassword.js'
 
 const Stack = createStackNavigator();
 
@@ -28,6 +29,7 @@ function MyStack() {
           <Stack.Screen name="HighScore" component={HighScore} options={{ headerShown: false }}/>
           <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} options={{ headerShown: false }}/>
           <Stack.Screen name="Stats" component={Stats} options={{ headerShown: false }}/>
+          <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }}/>
         </Stack.Navigator>
       </NavigationContainer>
     );

@@ -68,8 +68,8 @@ const styles = StyleSheet.create({
   },
 
   paragraph: {
-    fontSize: 16,
-    color: "#ffffff",
+    fontSize: 20,
+    color: "#5c5e70",
     textAlign: "center",
     padding: 10,
     marginTop: 15,

@@ -3,20 +3,16 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, StatusBar } from '
 import firebase from '../Firebase';
 import iid from '@react-native-firebase/iid';
 
-export default class SignUp extends React.Component {
+export default class ForgotPassword extends React.Component {
 
-  state = { email: '', password: '' }
+  state = { email: ''}
 
-  Login  = (email, password) => {
-      firebase
-         .auth()
-         .signInWithEmailAndPassword(email, password)
-         .then((s)=> {
-            this.props.navigation.navigate('Main');
-         })
-         .catch(function(error) {
-           alert(error.message);
-         });
+  Reset = async() => {
+      try {
+          await auth().sendPasswordResetEmail(email);
+      } catch (e) {
+          console.log(e);
+      }
   };
 
   render(){
@@ -31,30 +27,15 @@ export default class SignUp extends React.Component {
             placeholderTextColor="white"
             onChangeText={text => this.setState({email:text})}/>
         </View>
-        <View style={styles.inputView} >
-          <TextInput
-            secureTextEntry
-            style={styles.inputText}
-            placeholder="Enter Your Password..."
-            placeholderTextColor="white" //#003f5c
-            onChangeText={text => this.setState({password:text})}/>
-        </View>
 
-        <TouchableOpacity onPress={() => this.Login(this.state.email, this.state.password)} style={styles.loginBtn}>
-          <Text style={styles.loginText}>Login</Text>
+        <TouchableOpacity onPress={() => this.Reset(this.state.email)} style={styles.loginBtn}>
+          <Text style={styles.loginText}>Reset Password</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.SignUpBtn}  onPress={() => this.props.navigation.navigate('SignUp')}>
+        <TouchableOpacity style={styles.SignUpBtn}  onPress={() => this.props.navigation.navigate('Login')}>
           <Text style={styles.loginText}>
-            Sign Up
+            Return To Log In
           </Text>
         </TouchableOpacity>
-
-        <View style={{flexDirection:'row',alignItems:'space-around',marginTop:10}}>
-            <Text style={{color:'black'}}>Forgot Password?   </Text>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('ForgotPassword')}>
-                <Text style={{color:'black',fontWeight:'bold',fontSize:15}}>Click here</Text>
-            </TouchableOpacity>
-        </View>
 
       </View>
     );

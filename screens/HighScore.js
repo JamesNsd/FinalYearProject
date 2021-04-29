@@ -90,11 +90,7 @@ renderHeader() {
 
             <View style={{
               flexDirection: 'column', justifyContent: 'center', alignItems: 'center', paddingTop:6,}}>
-              <Text style={{
-              fontSize: 45, fontStyle: 'italic',
-              fontWeight:"bold",
-              color:"#fb5b5a",
-              marginBottom:6}}>
+              <Text style={{fontSize: 45, fontStyle: 'italic', fontWeight:"bold", color:"#fb5b5a", marginBottom:6, marginTop:6}}>
                   Leaderboard</Text>
               <Text style={{ fontSize: 25, fontWeight:"bold", color: 'black', }}>{this.state.myUserName}</Text>
 
@@ -136,7 +132,7 @@ renderHeader() {
           this.alert(item.name + " clicked", item.score + " points, wow!")}}*/
         data={this.state.data}
         sortBy='highScore'
-        evenRowColor= "#edfcf9"
+        evenRowColor= "#fb5b5a"
         labelBy='userName'/>
 
         </View>

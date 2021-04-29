@@ -11,22 +11,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="152174c5-102c-41a6-ac5b-7e7cae11890a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/screens/Stats.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/question.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screens/forgotPassword.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Firebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/Firebase.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Question.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Question.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/HighScore.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/HighScore.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/QuestionScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/QuestionScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/QuizMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/QuizMain.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/Settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Settings.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/Stats.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Stats.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/WelcomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/WelcomeScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,12 +44,16 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\quizceli\assets" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\user\quizceli" />
     </key>
@@ -80,6 +83,9 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="439" y="169" width="1200" height="800" key="AVDManager" timestamp="1619695103735">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -90,6 +96,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="746" y="296" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1618426582036" />
+    <state x="677" y="104" width="585" height="801" key="find.popup" timestamp="1619699549265">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="677" y="104" width="585" height="801" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1619699549265" />
     <state x="559" y="251" key="run.anything.popup" timestamp="1618837355813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

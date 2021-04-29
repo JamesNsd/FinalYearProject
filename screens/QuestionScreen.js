@@ -16,6 +16,8 @@ export default class TakeQuiz extends React.Component {
 
           scores: 0,
           current: 0,
+          attempts: 0,
+
           correctScore: 5,
           totalScore: 50,
 
@@ -49,6 +51,9 @@ export default class TakeQuiz extends React.Component {
           {
             questions: [],
             current: 0,
+            scores: 0,
+            attempts: 0,
+
             results: {
               score: 0,
               correctAnswers: 0,
@@ -88,10 +93,11 @@ export default class TakeQuiz extends React.Component {
             .update({
               score: this.state.results.score,
               scores: firebase.firestore.FieldValue.arrayUnion(this.state.results.score),
+              attempts: firebase.firestore.FieldValue.increment(1),
             })
             //ensure we catch any errors at this stage to advise us if something does go wrong
             .catch(error => {
-                console.log('Something went wrong with added score to firestore: ', error);
+                console.log('Something went wrong: ', error);
             })
             .then((s)=> {
                 this.props.navigation.navigate('HighScore');
@@ -154,7 +160,7 @@ export default class TakeQuiz extends React.Component {
 
                  <TouchableOpacity
                          style={styles.button}
-                         onPress={() => this.props.navigation.navigate("QuizMain")}
+                         onPress={() => this.props.navigation.navigate("Main")}
                        >
                          <Text
                             style={{color: "white", fontWeight: "bold"}}
@@ -183,7 +189,7 @@ export default class TakeQuiz extends React.Component {
         fontStyle: 'italic',
         fontWeight:"bold",
         fontSize:30,
-        color:"#fb5b5a",
+        color:"#5c5e70",
         marginBottom:110
       },
 

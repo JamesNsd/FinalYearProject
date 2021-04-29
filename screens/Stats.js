@@ -3,44 +3,47 @@ import { StyleSheet, Platform, Image, Text, View, TextInput, Alert, TouchableOpa
 import * as firebase from "firebase";
 import { Ionicons } from "@expo/vector-icons";
 
-export default class Main extends React.Component {
-  state = { currentUser: null }
+export default class Stats extends React.Component {
 
-  componentDidMount() {
-    const { currentUser } = firebase.auth()
-    this.setState({ currentUser })
-}
+  constructor(){
+    super();
+  }
+
+  state = { name: '', score: 0, level: 0, attempts: 0}
+
+  componentDidMount(){
+  try {
+    const user = firebase.auth().currentUser;
+  firebase.firestore().collection("users").doc(firebase.auth().currentUser.uid)
+  .get()
+  .then(querySnapshot => {
+  this.setState({
+    name:querySnapshot.data().name,
+    score:querySnapshot.data().score,
+    attempts:querySnapshot.data().attempts,
+    level:querySnapshot.data().level
+  })
+  });
+
+  } catch (error) {
+
+  }
+
+  }
 
 render() {
-    const { currentUser } = this.state
 return (
         <View style={styles.container}>
                 <StatusBar backgroundColor="black"/>
-                <Text style={styles.logo}>Hi {currentUser && currentUser.displayName }!</Text>
+                <Text style={styles.logo}>Stats</Text>
 
-                <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("QuizMain")}>
-                    <Text style={{color: "white", fontWeight: "bold", fontSize: 18}} >
-                        Quiz
-                    </Text>
-                </TouchableOpacity>
+                <Text style={{ fontSize: 25, fontWeight:"bold", color: 'black', marginBottom:20 }}>Name: {this.state.name}</Text>
 
-                <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("HighScore")}>
-                    <Text style={{color: "white", fontWeight: "bold", fontSize: 18}} >
-                        LeaderBoard
-                    </Text>
-                </TouchableOpacity>
+                <Text style={{ fontSize: 25, fontWeight:"bold", color: 'black', marginBottom:20}}>Level: {this.state.level}</Text>
 
-                <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("Stats")}>
-                    <Text style={{color: "white", fontWeight: "bold", fontSize: 18}} >
-                        Stats
-                    </Text>
-                </TouchableOpacity>
+                <Text style={{ fontSize: 25, fontWeight:"bold", color: 'black', marginBottom:20}}>Score: {this.state.score}</Text>
 
-                <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("Settings")}>
-                    <Text style={{color: "white", fontWeight: "bold", fontSize: 18}} >
-                        Settings
-                    </Text>
-                </TouchableOpacity>
+                <Text style={{ fontSize: 25, fontWeight:"bold", color: 'black', marginBottom:20}}>Attempts: {this.state.attempts}</Text>
 
         </View>
     )

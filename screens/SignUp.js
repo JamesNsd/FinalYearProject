@@ -9,7 +9,7 @@ export default class SignUp extends React.Component {
     super();
   }
 
-  state = { name: '', email: '', password: '', score: 0, scores: 0, level: 0, attempts: 0}
+  state = { name: '', email: '', password: '', score: 0, level: 0, attempts: 0}
 
   Register = (email, password) => {
       firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
@@ -27,7 +27,6 @@ export default class SignUp extends React.Component {
                            email: this.state.email,
                            score: this.state.score,
                            level: this.state.level,
-                           scores: this.state.scores,
                            attempts: this.state.attempts,
                        })
                        //ensure we catch any errors at this stage to advise us if something does go wrong
@@ -82,12 +81,10 @@ export default class SignUp extends React.Component {
 
 
         <View style={{flexDirection:'row',alignItems:'space-around',marginTop:10}}>
-          <Text style={{color:'white'}}>Already have an account?   </Text>
+          <Text style={{color:'black'}}>Already have an account?   </Text>
           <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')}>
             <Text style={{color:'#fb5b5a',fontWeight:'bold',fontSize:15}}>Login here</Text>
           </TouchableOpacity>
-
-
         </View>
 
       </View>
@@ -111,7 +108,7 @@ const styles = StyleSheet.create({
   },
   inputView:{
     width:"80%",
-    backgroundColor:"#465881",
+    backgroundColor:"#5c5e70",
     borderRadius:25,
     height:50,
     marginBottom:20,

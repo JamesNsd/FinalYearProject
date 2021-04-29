@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   text: {
-    color: '#A29F9F',
+    color: '#5c5e70',
     textAlign: 'center',
   },
   title: {
