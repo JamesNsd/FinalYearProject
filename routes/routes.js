@@ -11,6 +11,7 @@ import Settings from '../screens/Settings.js'
 import TakeQuiz from '../screens/QuestionScreen.js'
 import HighScore from '../screens/HighScore.js'
 import WelcomeScreen from '../screens/WelcomeScreen.js'
+import Stats from '../screens/Stats.js'
 
 const Stack = createStackNavigator();
 
@@ -26,6 +27,7 @@ function MyStack() {
           <Stack.Screen name="TakeQuiz" component={TakeQuiz} options={{ headerShown: false }}/>
           <Stack.Screen name="HighScore" component={HighScore} options={{ headerShown: false }}/>
           <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} options={{ headerShown: false }}/>
+          <Stack.Screen name="Stats" component={Stats} options={{ headerShown: false }}/>
         </Stack.Navigator>
       </NavigationContainer>
     );

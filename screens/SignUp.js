@@ -2,8 +2,6 @@ import React from 'react'
 import { StyleSheet, Text, TextInput, View, Button, TouchableOpacity, StatusBar } from 'react-native'
 import firebase from '../Firebase';
 import firestore from '../Firebase';
-import FlashMessage from "react-native-flash-message";
-import { showMessage, hideMessage } from "react-native-flash-message";
 
 export default class SignUp extends React.Component {
 
@@ -11,7 +9,7 @@ export default class SignUp extends React.Component {
     super();
   }
 
-  state = { name: '', email: '', password: '', score: 0}
+  state = { name: '', email: '', password: '', score: 0, scores: 0, level: 0, attempts: 0}
 
   Register = (email, password) => {
       firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
@@ -28,6 +26,9 @@ export default class SignUp extends React.Component {
                            name: this.state.name,
                            email: this.state.email,
                            score: this.state.score,
+                           level: this.state.level,
+                           scores: this.state.scores,
+                           attempts: this.state.attempts,
                        })
                        //ensure we catch any errors at this stage to advise us if something does go wrong
                        .catch(error => {
@@ -89,8 +90,6 @@ export default class SignUp extends React.Component {
 
         </View>
 
-        <FlashMessage position="top" />
-
       </View>
     );
   }
@@ -106,7 +105,7 @@ const styles = StyleSheet.create({
   logo:{
     fontStyle: 'italic',
     fontWeight:"bold",
-    fontSize:60,
+    fontSize:45,
     color:"#fb5b5a",
     marginBottom:110
   },

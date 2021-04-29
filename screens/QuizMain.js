@@ -50,8 +50,9 @@ const styles = StyleSheet.create({
   logo:{
     fontStyle: 'italic',
     fontWeight:"bold",
-    fontSize:30,
+    fontSize:45,
     color:"#fb5b5a",
+    textAlign: "center",
     marginBottom:110
   },
 

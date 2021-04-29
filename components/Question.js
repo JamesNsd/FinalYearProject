@@ -51,7 +51,7 @@ export default class Question extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={{ fontStyle: 'italic', color:"#fb5b5a", fontSize: 24, fontWeight: "bold" }}>
+        <Text style={{ fontStyle: 'italic', color:"#fb5b5a", fontSize: 30, fontWeight: "bold" }}>
           {this.props.question.question}
         </Text>
         <RadioGroup

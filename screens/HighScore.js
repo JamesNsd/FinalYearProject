@@ -1,4 +1,4 @@
-  import React from 'react';
+import React from 'react';
 import firebase from '../Firebase';
 import Leaderboard from 'react-native-leaderboard';
 import { Alert, View,Text, Image, Button, TouchableOpacity} from 'react-native';
@@ -91,7 +91,7 @@ renderHeader() {
             <View style={{
               flexDirection: 'column', justifyContent: 'center', alignItems: 'center', paddingTop:6,}}>
               <Text style={{
-              fontSize: 60, fontStyle: 'italic',
+              fontSize: 45, fontStyle: 'italic',
               fontWeight:"bold",
               color:"#fb5b5a",
               marginBottom:6}}>

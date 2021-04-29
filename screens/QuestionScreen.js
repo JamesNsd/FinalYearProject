@@ -14,6 +14,7 @@ export default class TakeQuiz extends React.Component {
           loading: false,
           questions: [],
 
+          scores: 0,
           current: 0,
           correctScore: 5,
           totalScore: 50,
@@ -35,6 +36,7 @@ export default class TakeQuiz extends React.Component {
 
         const { results } = questions;
 
+        //trying to shuffle questions by id
         results.forEach(item => {
           item.id = Math.floor(Math.random() * 10000);
         });
@@ -80,14 +82,16 @@ export default class TakeQuiz extends React.Component {
         this.fetchQuestions();
       }
 
-      setScore= (score) => {
+      setUserValues= (score) => {
+
             firebase.firestore().collection('users').doc(firebase.auth().currentUser.uid)
             .update({
-              score:this.state.results.score
+              score: this.state.results.score,
+              scores: firebase.firestore.FieldValue.arrayUnion(this.state.results.score),
             })
             //ensure we catch any errors at this stage to advise us if something does go wrong
             .catch(error => {
-                console.log('Something went wrong with added user to firestore: ', error);
+                console.log('Something went wrong with added score to firestore: ', error);
             })
             .then((s)=> {
                 this.props.navigation.navigate('HighScore');
@@ -128,7 +132,7 @@ export default class TakeQuiz extends React.Component {
 
                  <TouchableOpacity
                          style={styles.button}
-                         onPress={() => this.setScore(this.state.score)}
+                         onPress={() => this.setUserValues(this.state.score)}
                        >
                          <Text
                             style={{color: "white", fontWeight: "bold"}}
