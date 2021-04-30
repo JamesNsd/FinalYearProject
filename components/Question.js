@@ -10,7 +10,7 @@ export default class Question extends React.Component {
       answer: null
     };
   }
-
+  //Radio Buttons for question type
   renderOptions = question => {
     if (question.type === "boolean") {
       return [

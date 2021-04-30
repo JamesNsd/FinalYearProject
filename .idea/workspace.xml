@@ -11,21 +11,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="152174c5-102c-41a6-ac5b-7e7cae11890a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/question.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screens/forgotPassword.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Firebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/Firebase.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Question.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Question.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/Helvetica-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/Helvetica-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fonts/Helvetica-Normal.ttf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/HighScore.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/HighScore.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/QuestionScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/QuestionScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/QuizMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/QuizMain.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/Settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Settings.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Stats.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Stats.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/WelcomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/WelcomeScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/forgotPassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/forgotPassword.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,11 +88,11 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="439" y="169" width="1200" height="800" key="AVDManager" timestamp="1619695103735">
+    <state x="439" y="169" width="1200" height="800" key="AVDManager" timestamp="1619782124442">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="366" y="141" width="1200" height="800" key="AVDManager/0.0.1366.728@0.0.1366.728" timestamp="1617294791259" />
-    <state x="439" y="169" width="1200" height="800" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1619695103735" />
+    <state x="439" y="169" width="1200" height="800" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1619782124442" />
     <state x="746" y="296" key="FileChooserDialogImpl" timestamp="1618426582036">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

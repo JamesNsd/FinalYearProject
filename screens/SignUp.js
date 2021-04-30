@@ -8,18 +8,19 @@ export default class SignUp extends React.Component {
   constructor(){
     super();
   }
-
+  //seet variables for app state
   state = { name: '', email: '', password: '', score: 0, level: 0, attempts: 0}
-
+  //function to register user and bring to main screen
   Register = (email, password) => {
       firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
           .then((userCredentials)=>{
               if(userCredentials.user){
                 userCredentials.user.updateProfile({
+                //set display name
                   displayName: this.state.name
                 })
                 .then(() => {
-                       //Once the user creation has happened successfully, we can add the currentUser into firestore
+                       //Once the user creation has happened successfully, the useris added into firestore
                        //with the appropriate details.
                        firebase.firestore().collection('users').doc(firebase.auth().currentUser.uid)
                        .set({
@@ -29,7 +30,7 @@ export default class SignUp extends React.Component {
                            level: this.state.level,
                            attempts: this.state.attempts,
                        })
-                       //ensure we catch any errors at this stage to advise us if something does go wrong
+                       //catch any errors
                        .catch(error => {
                            console.log('Something went wrong with added user to firestore: ', error);
                        })

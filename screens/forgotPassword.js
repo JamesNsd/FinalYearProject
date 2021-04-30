@@ -6,7 +6,7 @@ import iid from '@react-native-firebase/iid';
 export default class ForgotPassword extends React.Component {
 
   state = { email: ''}
-
+//function to send email to entered by user
   Reset = async() => {
       try {
           await auth().sendPasswordResetEmail(email);
@@ -27,7 +27,7 @@ export default class ForgotPassword extends React.Component {
             placeholderTextColor="white"
             onChangeText={text => this.setState({email:text})}/>
         </View>
-
+        {/*onPress the email entered is ran to the function and sent */}
         <TouchableOpacity onPress={() => this.Reset(this.state.email)} style={styles.loginBtn}>
           <Text style={styles.loginText}>Reset Password</Text>
         </TouchableOpacity>

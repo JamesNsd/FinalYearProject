@@ -3,7 +3,7 @@ import firebase from '../Firebase';
 import Leaderboard from 'react-native-leaderboard';
 import { Alert, View,Text, Image, Button, TouchableOpacity} from 'react-native';
 
-
+//for suffix to be assigned based on number
 const ordinal_suffix_of = (i) => {
     var j = i % 10,
         k = i % 100;
@@ -22,6 +22,7 @@ export default class HighScore extends React.Component { //App
   constructor(){
     super();
   }
+  //add user data to array and sets initial rank
   state = {
     data: [] ,
     userRank: 1,
@@ -33,8 +34,9 @@ alert = (title, body) => {
     cancelable: false
   });
 };
+//sort the scores
 sort = (data) => {
-  //console.log("DATAAAAAAAA",data)
+  //console.log("DATA",data)
   const sorted = data && data.sort((item1, item2) => {
       return item2.highScore - item1.highScore;
   })
@@ -44,12 +46,14 @@ sort = (data) => {
   this.setState({ userRank: ++userRank });
   return sorted;
 }
+//import data from firestore
 componentDidMount(){
 try {
   const user = firebase.auth().currentUser;
 firebase.firestore().collection("users").doc(firebase.auth().currentUser.uid)
 .get()
 .then(querySnapshot => {
+//set your username and score
 this.setState({
   myUserName:querySnapshot.data().name,
   myLastScore:querySnapshot.data().score
@@ -124,7 +128,7 @@ renderHeader() {
     return (
 
 <View style={{ flex: 1 }}>
-        {/* Ghetto Header */}
+        {}
 
       {this.renderHeader()}
         <Leaderboard

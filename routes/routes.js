@@ -2,7 +2,7 @@ import React from 'react'
 
 import { createStackNavigator } from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native'
-
+//importing class names from screens
 import SignUp from '../screens/SignUp.js'
 import Login from '../screens/Login.js'
 import Main from '../screens/Main.js'
@@ -15,7 +15,7 @@ import Stats from '../screens/Stats.js'
 import ForgotPassword from '../screens/forgotPassword.js'
 
 const Stack = createStackNavigator();
-
+//creating navigation stack
 function MyStack() {
     return (
       <NavigationContainer>

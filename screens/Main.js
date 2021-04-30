@@ -5,7 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 export default class Main extends React.Component {
   state = { currentUser: null }
-
+//get current user from auth
   componentDidMount() {
     const { currentUser } = firebase.auth()
     this.setState({ currentUser })
@@ -16,6 +16,7 @@ render() {
 return (
         <View style={styles.container}>
                 <StatusBar backgroundColor="black"/>
+                {/*display users name when logged in*/}
                 <Text style={styles.logo}>Hi {currentUser && currentUser.displayName }!</Text>
 
                 <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("QuizMain")}>

@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, StatusBar } from '
 import firebase from '../Firebase';
 import iid from '@react-native-firebase/iid';
 
-export default class SignUp extends React.Component {
+export default class Login extends React.Component {
 
   state = { email: '', password: '' }
 

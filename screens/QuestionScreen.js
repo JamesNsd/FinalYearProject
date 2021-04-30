@@ -8,7 +8,7 @@ export default class TakeQuiz extends React.Component {
 
       constructor(props) {
         super(props);
-
+        //set values for quiz
         this.state = {
 
           loading: false,
@@ -17,6 +17,7 @@ export default class TakeQuiz extends React.Component {
           scores: 0,
           current: 0,
           attempts: 0,
+          level: 0,
 
           correctScore: 5,
           totalScore: 50,
@@ -28,7 +29,7 @@ export default class TakeQuiz extends React.Component {
           completed: false
         };
       }
-
+      //import questions from pythonanywhere
       fetchQuestions = async () => {
         await this.setState({ loading: true });
         const response = await fetch(
@@ -45,7 +46,7 @@ export default class TakeQuiz extends React.Component {
 
         await this.setState({ questions: results, loading: false });
       };
-
+      //reset function for when reset button is pressed
       reset = () => {
         this.setState(
           {
@@ -65,7 +66,8 @@ export default class TakeQuiz extends React.Component {
           }
         );
       };
-
+      //checks if the answer given was correct and assigns score to the user, then sets state to next question,
+      //or if the questions have run out
       submitAnswer = (index, answer) => {
         const question = this.state.questions[index];
         const isCorrect = question.correct_answer === answer;
@@ -86,7 +88,8 @@ export default class TakeQuiz extends React.Component {
       componentDidMount() {
         this.fetchQuestions();
       }
-
+      //sets the users score, adds the score to their array, and increments their attempts.
+      //Happens when the user selects leaderboard.
       setUserValues= (score) => {
 
             firebase.firestore().collection('users').doc(firebase.auth().currentUser.uid)
@@ -94,13 +97,14 @@ export default class TakeQuiz extends React.Component {
               score: this.state.results.score,
               scores: firebase.firestore.FieldValue.arrayUnion(this.state.results.score),
               attempts: firebase.firestore.FieldValue.increment(1),
+              level: firebase.firestore.FieldValue.increment(0.25),
             })
             //ensure we catch any errors at this stage to advise us if something does go wrong
             .catch(error => {
                 console.log('Something went wrong: ', error);
             })
             .then((s)=> {
-                this.props.navigation.navigate('HighScore');
+                alert("Score Submitted!!")
             })
           .catch(function(error) {
             alert(error.message);
@@ -109,6 +113,7 @@ export default class TakeQuiz extends React.Component {
 
       render() {
         return (
+          //Submits answer and calls next question
           <View style={styles.container}>
             {!!this.state.questions.length > 0 &&
               this.state.completed === false && (
@@ -117,6 +122,7 @@ export default class TakeQuiz extends React.Component {
                     this.submitAnswer(this.state.current, answer);
                   }}
                   question={this.state.questions[this.state.current]}
+                  /*Randomises the answers on screen*/
                   correctPosition={Math.floor(Math.random() * 3)}
                   current={this.state.current}
                 />
@@ -136,9 +142,20 @@ export default class TakeQuiz extends React.Component {
                   <Text style={styles.scores}>Total Score: {50}</Text>
                   <Text style={styles.scores}>Obtained Score: {this.state.results.score}</Text>
 
+                  <TouchableOpacity
+                          style={styles.buttonsub}
+                          onPress={() => this.setUserValues(this.state.score)}
+                        >
+                          <Text
+                             style={{color: "white", fontWeight: "bold"}}
+                          >
+                             Submit Score!
+                          </Text>
+                  </TouchableOpacity>
+
                  <TouchableOpacity
                          style={styles.button}
-                         onPress={() => this.setUserValues(this.state.score)}
+                         onPress={() => this.props.navigation.navigate("HighScore")}
                        >
                          <Text
                             style={{color: "white", fontWeight: "bold"}}
@@ -210,6 +227,18 @@ export default class TakeQuiz extends React.Component {
 
       button: {
         backgroundColor: "#fb5b5a",
+        padding: 10,
+        marginTop: 10,
+        borderRadius: 25,
+        width: 150,
+        height:50,
+        alignItems:"center",
+        justifyContent:"center"
+
+      },
+
+      buttonsub: {
+        backgroundColor: "#669999",
         padding: 10,
         marginTop: 10,
         borderRadius: 25,

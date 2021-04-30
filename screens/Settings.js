@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, StatusBar } from '
 import firebase from '../Firebase';
 
 export default class Settings extends React.Component {
-
+//log out function
   Logout = async () => {
       try {
           await firebase.auth().signOut();

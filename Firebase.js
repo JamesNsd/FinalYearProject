@@ -4,7 +4,7 @@ require('firebase/auth')
 import firestore from 'firebase/firestore'
 
 const settings = {timestampsInSnapshots: true};
-
+//Firebase configuration details for app to communicate with Firebase
 const config = {
     apiKey: "AIzaSyDXTJMAoN4tYV8456hnG611t1cgjndKuSw",
     authDomain: "celiquiz.firebaseapp.com",

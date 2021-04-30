@@ -14,7 +14,6 @@ const slides = [
     key: 1,
     title: 'Hi!',
     text: 'Welcome to CeliQuiz.',
-    //image: require('../assets/images/slider11.png'),
   },
   {
     key: 2,
@@ -25,7 +24,6 @@ const slides = [
     key: 3,
     title: 'Learn!',
     text: "Take the Quiz and find out more about Coeliac Disease",
-    //image: require('../assets/images/slider3.png'),
   },
 ];
 
