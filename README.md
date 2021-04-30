@@ -1,4 +1,4 @@
-# FinalYearProject
+# FinalYearProject James Nolan
 
 Download and install node.js and npm from https://www.npmjs.com/get-npm
 
